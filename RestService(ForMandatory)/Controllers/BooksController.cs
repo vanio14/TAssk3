@@ -44,7 +44,7 @@ namespace RestService_ForMandatory_.Controllers
 
         // PUT: api/Books/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Book addNewBook)
+        public void Put(string id, [FromBody] Book addNewBook)
         {
             Delete(id);
             Post(addNewBook);
