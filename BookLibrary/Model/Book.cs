@@ -4,12 +4,10 @@ namespace BookLibrary.Model
 {
     public class Book
     {
-
         public string title;
         public string author;
         public int page;
         public string iSBN;
-
 
         public Book(string title, string author, int page, string iSBN)
         {

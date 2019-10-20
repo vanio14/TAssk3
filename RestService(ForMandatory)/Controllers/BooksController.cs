@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using java.awt.print;
-using Microsoft.AspNetCore.Http;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 using Book = BookLibrary.Model.Book;
@@ -14,7 +9,7 @@ namespace RestService_ForMandatory_.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        public static List<Book> Books { get; set; } = new List<Book>()
+        public static List<Book> books  = new List<Book>()
         {
             new Book("1984", "George Orwell", 243, "3215423215429"),
             new Book("Twenty Thousand Leagues Under the Sea", "Jules Verne", 151, "9215483218428"),
@@ -28,34 +23,39 @@ namespace RestService_ForMandatory_.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<BookLibrary.Model.Book>>Get()
         {
-            return Books;
+            return books;
         }
 
        
 
         // GET: api/Books/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public ActionResult<Book> Get(string id)
         {
-            return "value";
+            return books.Find(e => e.iSBN == id);
         }
 
         // POST: api/Books
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Book addNewBook)
         {
+            books.Add(addNewBook);
         }
 
         // PUT: api/Books/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Book addNewBook)
         {
+            Delete(id);
+            Post(addNewBook);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
+
+            books.RemoveAll(e => e.iSBN == id);
         }
     }
 }
