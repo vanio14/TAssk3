@@ -11,11 +11,11 @@ namespace RestService_ForMandatory_.Controllers
     {
         public static List<Book> books  = new List<Book>()
         {
-            new Book("1984", "George Orwell", 243, "3215423215429"),
-            new Book("Twenty Thousand Leagues Under the Sea", "Jules Verne", 151, "9215483218428"),
-            new Book("Small Prince", "A. d. Saint-Exupéry", 300, "9997448539997"),
-            new Book("Metro 2033", "D. Glukhovsky", 530,  "5544483218433"),
-            new Book("Brave New World ", " A. Huxley", 330,  "5544483218433")
+            new Book("The Adventure of the Musgrave Ritual", "Arthur Conan Doyle", 1200, "9781789320848"),
+            new Book("The Boscombe Valley Mystery", "Arthur Conan Doyle", 31, "9780140815122"),
+            new Book("The House of Silk", "Anthony Horowitz", 294, "9781611132908"),
+            new Book("The Adventures of Sherlock Holmes", "Arthur Conan Doyle", 307,  "9781581180671"),
+            new Book("The Adventure of Silver Blaze ", " Arthur Conan Doyle", 330,  "9788771303803")
 
         };
 
